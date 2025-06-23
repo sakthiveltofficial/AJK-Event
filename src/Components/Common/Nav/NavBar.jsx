@@ -9,7 +9,7 @@ function NavBar() {
     <div className="w-full h-[90px] fixed top-0 z-[40] flex items-center justify-between">
       <div className="logo__continer z-[200] flex items-center justify-center relative h-full bg-[#e5e5e5] w-[12rem] rounded-br-[28px]">
         <Image
-          className="w-[10rem] h-[60px] translate-y-[10px] translate-x-[10px]"
+          className="w-[10rem] h-[55px] translate-y-[10px] translate-x-[10px]"
           src={"/logo.png"}
           alt="SanthiGearsLogo"
           width={1080}
