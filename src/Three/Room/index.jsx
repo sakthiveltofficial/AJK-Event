@@ -142,7 +142,7 @@ export const Room = forwardRef((props, ref) => {
           receiveShadow
           geometry={nodes.Tunnel_Exit_L_Door_Scifi_Tunnel_Door_0.geometry}
           material={materials.Scifi_Tunnel_Door}
-          position={[-235, 0, 0]}
+          // position={[-235, 0, 0]}
           // rotation={[2, 0, 0]}
         />
 

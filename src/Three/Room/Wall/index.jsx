@@ -28,12 +28,12 @@ function Wall() {
     // Define the six corner points of the hexagonal hole
     // Format: [x, y] coordinates
     const holePoints = [
-      [-1.9, -2.5],    // Bottom left
-      [2.1, -2.4],     // Bottom right
+      [-2, -2.45],    // Bottom left
+      [2.1, -2.45],     // Bottom right
       [2.9, -0.3],      // Middle right
       [2, 1.9],      // Top right
       [-2, 1.9],     // Top left
-      [-3, -0.25]      // Middle left
+      [-2.9, -0.3]      // Middle left
     ];
     
     // Create outer shape (wall)
