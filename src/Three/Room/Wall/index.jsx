@@ -1,10 +1,36 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
-import { useLoader } from "@react-three/fiber";
+import React, { useEffect, useMemo, useState } from "react";
+import { useLoader, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { Text3D, Center, Float } from "@react-three/drei";
 
 function Wall() {
+  // Create video element and set up
+  const [video] = useState(() => 
+    Object.assign(document.createElement('video'), { 
+      src: '/video/white_bg.webm', 
+      crossOrigin: 'Anonymous', 
+      loop: true, 
+      muted: true,
+      playsInline: true
+    })
+  );
+  
+  // Create video texture
+  const [videoTexture] = useState(() => new THREE.VideoTexture(video));
+  
+  // Play video when component mounts
+  useEffect(() => {
+    video.play();
+    // Use the new approach for color space
+    videoTexture.colorSpace = THREE.SRGBColorSpace;
+    videoTexture.minFilter = THREE.LinearFilter;
+    videoTexture.magFilter = THREE.LinearFilter;
+    return () => {
+      video.pause();
+    };
+  }, [video, videoTexture]);
+
   const [colorMap, normalMap, roughnessMap, metalnessMap] = useLoader(
     THREE.TextureLoader,
     [
@@ -19,7 +45,7 @@ function Wall() {
   useEffect(() => {
     [colorMap, normalMap, roughnessMap, metalnessMap].forEach((texture) => {
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-      texture.repeat.set(4, 4); // Adjust the repeat value as needed
+      texture.repeat.set(100, 100); // Adjust the repeat value as needed
     });
   }, [colorMap, normalMap, roughnessMap, metalnessMap]);
 
@@ -85,7 +111,7 @@ function Wall() {
 
       <group position={[-11, 5.5, 29.6]}>
         <Center>
-        <Text3D
+          <Text3D
             font="/fonts/Roman.json"
             size={0.5}
             height={0.4}
@@ -98,17 +124,12 @@ function Wall() {
             letterSpacing={0.1}
           >
             From Idea to Impact
-            <meshStandardMaterial
-              color="#ffffff"
-              metalness={0.8}
-              roughness={0.2}
-              envMapIntensity={2}
-            />
+            {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
           </Text3D>
         </Center>
       </group>
 
-      <group position={[-10, 3.5, 29.7]}>
+      <group position={[-11, 3.9, 29.7]}>
         <Center>
           <Text3D
             font="/fonts/Azonix_Regular.json"
@@ -122,15 +143,9 @@ function Wall() {
             bevelSegments={5}
             letterSpacing={0.1}
           >
-            AJK Ignites
-            <meshStandardMaterial
-              color="#ffffff"
-              metalness={0.8}
-              roughness={0.2}
-              envMapIntensity={2}
-            />
+            AJK Ignites 
+            {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
           </Text3D>
-    
         </Center>
       </group>
     </group>

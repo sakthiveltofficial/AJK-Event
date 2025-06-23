@@ -14,6 +14,7 @@
     "@theatre/core": "0.5",
     "@theatre/r3f": "0.5",
     "@theatre/studio": "0.5",
+    "lucide-react": "^0.522.0",
     "maath": "^0.10.8",
     "next": "15.3.4",
     "react": "^19.0.0",
