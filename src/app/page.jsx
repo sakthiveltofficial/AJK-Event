@@ -7,7 +7,7 @@ export default function Home() {
     <div className="w-full h-screen">
       <CanvesWrapper>
         <Idel />
-        {/* <Wall /> */}
+        <Wall />
       </CanvesWrapper>
     </div>
   );
