@@ -25,18 +25,15 @@ function Wall() {
     const wallWidth = 70;
     const wallHeight = 40;
     
-    // Hole dimensions
-    const holeWidth = 5.4;
-    const holeHeight = 4.3;
-    const holePositionX = -0.1;
-    const holePositionY = -0.3;
-
-    // Calculate hole position based on provided coordinates
-    const holeLeft = -holeWidth/2 + holePositionX;
-    const holeRight = holeWidth/2 + holePositionX;
-    const holeBottom = -holeHeight/2 + holePositionY;
-    const holeTop = holeHeight/2 + holePositionY;
-
+    // Define the four corner points of the hole
+    // Format: [x, y] coordinates
+    const holePoints = [
+      [-2.7, -2.4],  // Bottom left
+      [2.7, -2.4],     // Bottom right
+      [2.7, 2],    // Top right
+      [-2.7, 1.9]  // Top left
+    ];
+    
     // Create outer shape (wall)
     const shape = new THREE.Shape();
     shape.moveTo(-wallWidth/2, -wallHeight/2);
@@ -45,13 +42,13 @@ function Wall() {
     shape.lineTo(-wallWidth/2, wallHeight/2);
     shape.lineTo(-wallWidth/2, -wallHeight/2);
     
-    // Create hole shape
+    // Create hole shape using the custom points
     const hole = new THREE.Path();
-    hole.moveTo(holeLeft, holeBottom);
-    hole.lineTo(holeRight, holeBottom);
-    hole.lineTo(holeRight, holeTop);
-    hole.lineTo(holeLeft, holeTop);
-    hole.lineTo(holeLeft, holeBottom);
+    hole.moveTo(holePoints[0][0], holePoints[0][1]); // Start at first point
+    hole.lineTo(holePoints[1][0], holePoints[1][1]); // Line to second point
+    hole.lineTo(holePoints[2][0], holePoints[2][1]); // Line to third point
+    hole.lineTo(holePoints[3][0], holePoints[3][1]); // Line to fourth point
+    hole.lineTo(holePoints[0][0], holePoints[0][1]); // Close the path
     
     // Add hole to shape
     shape.holes.push(hole);
