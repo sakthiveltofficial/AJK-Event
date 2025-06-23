@@ -25,13 +25,15 @@ function Wall() {
     const wallWidth = 70;
     const wallHeight = 40;
     
-    // Define the four corner points of the hole
+    // Define the six corner points of the hexagonal hole
     // Format: [x, y] coordinates
     const holePoints = [
-      [-2.7, -2.4],  // Bottom left
-      [2.7, -2.4],     // Bottom right
-      [2.7, 2],    // Top right
-      [-2.7, 1.9]  // Top left
+      [-1.9, -2.5],    // Bottom left
+      [2.1, -2.4],     // Bottom right
+      [2.9, -0.3],      // Middle right
+      [2, 1.9],      // Top right
+      [-2, 1.9],     // Top left
+      [-3, -0.25]      // Middle left
     ];
     
     // Create outer shape (wall)
@@ -42,13 +44,17 @@ function Wall() {
     shape.lineTo(-wallWidth/2, wallHeight/2);
     shape.lineTo(-wallWidth/2, -wallHeight/2);
     
-    // Create hole shape using the custom points
+    // Create hole shape using the hexagon points
     const hole = new THREE.Path();
     hole.moveTo(holePoints[0][0], holePoints[0][1]); // Start at first point
-    hole.lineTo(holePoints[1][0], holePoints[1][1]); // Line to second point
-    hole.lineTo(holePoints[2][0], holePoints[2][1]); // Line to third point
-    hole.lineTo(holePoints[3][0], holePoints[3][1]); // Line to fourth point
-    hole.lineTo(holePoints[0][0], holePoints[0][1]); // Close the path
+    
+    // Connect all points in sequence
+    for (let i = 1; i < holePoints.length; i++) {
+      hole.lineTo(holePoints[i][0], holePoints[i][1]);
+    }
+    
+    // Close the path
+    hole.lineTo(holePoints[0][0], holePoints[0][1]);
     
     // Add hole to shape
     shape.holes.push(hole);
