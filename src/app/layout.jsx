@@ -22,6 +22,9 @@ export default function RootLayout({ children }) {
       <body
         className={``}
       >
+        <div className="w-full h-full bg-red-500">
+
+        </div>
         <NavBar />
         {children}
       </body>

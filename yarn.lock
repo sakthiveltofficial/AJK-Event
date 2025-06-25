@@ -331,9 +331,15 @@ camera-controls@^2.9.0:
   integrity sha512-KnaKdcvkBJ1Irbrzl8XD6WtZltkRjp869Jx8c0ujs9K+9WD+1D7ryBsCiVqJYUqt6i/HR5FxT7RLASieUD+Q5w==
 
 caniuse-lite@^1.0.30001579:
+<<<<<<< HEAD
   version "1.0.30001724"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001724.tgz"
   integrity sha512-WqJo7p0TbHDOythNTqYujmaJTvtYRZrjpP8TCvH6Vb9CYJerJNKamKzIWOM4BkQatWj9H2lYulpdAQNBe7QhNA==
+=======
+  version "1.0.30001725"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001725.tgz#0a22f3fa333750f0b3254f9d47171f4ddc4ebcdd"
+  integrity sha512-OllFBaEDJx2nwkQSHdScjdRGCCLb9cb4fq50W3A/njtnJFRaRDQfGIl+J8vqAvwwKtbWB4Ptf4YdPXEculKdwg==
+>>>>>>> c61fd288b9f616686d14f17103c556fe0b839b4e
 
 chownr@^3.0.0:
   version "3.0.0"
@@ -412,9 +418,15 @@ draco3d@^1.4.1:
   integrity sha512-m6WCKt/erDXcw+70IJXnG7M3awwQPAsZvJGX5zY7beBqpELw6RDGkYVU0W43AFxye4pDZ5i2Lbyc/NNGqwjUVQ==
 
 enhanced-resolve@^5.18.1:
+<<<<<<< HEAD
   version "5.18.1"
   resolved "https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.18.1.tgz"
   integrity sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg==
+=======
+  version "5.18.2"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.18.2.tgz#7903c5b32ffd4b2143eeb4b92472bd68effd5464"
+  integrity sha512-6Jw4sE1maoRJo3q8MsSIn2onJFbLTOjY9hlx4DZXmOKvLRd1Ok2kXmAGXaafL2+ijsJZ1ClYbl/pmqr9+k4iUQ==
+>>>>>>> c61fd288b9f616686d14f17103c556fe0b839b4e
   dependencies:
     graceful-fs "^4.2.4"
     tapable "^2.2.0"
