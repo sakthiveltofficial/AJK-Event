@@ -11,9 +11,9 @@
   "dependencies": {
     "@react-three/drei": "^10.3.0",
     "@react-three/fiber": "^9.1.2",
-    "@theatre/core": "0.5",
-    "@theatre/r3f": "0.5",
-    "@theatre/studio": "0.5",
+    "@theatre/core": "^0.7.2",
+    "@theatre/r3f": "^0.7.2",
+    "@theatre/studio": "^0.7.2",
     "lucide-react": "^0.522.0",
     "maath": "^0.10.8",
     "next": "15.3.4",
