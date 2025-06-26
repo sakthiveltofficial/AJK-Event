@@ -31,6 +31,7 @@ function CanvesWrapper({ children }) {
       }, 4000);
     });
   }, []);
+  
   return (
     <div className="w-full h-full relative p-5">
       <div className="w-full h-full relative bg-black rounded-[3rem] overflow-hidden">

@@ -121,9 +121,9 @@ function Wall() {
             bevelSize={0.01}
             bevelOffset={0}
             bevelSegments={2}
-            letterSpacing={0.1}
+            letterSpacing={0.05}
           >
-            From Idea to Impact
+            From Spark to Solution
             {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
           </Text3D>
         </Center>
@@ -141,9 +141,9 @@ function Wall() {
             bevelSize={0.02}
             bevelOffset={0}
             bevelSegments={5}
-            letterSpacing={0.1}
+            letterSpacing={0.15}
           >
-            AJK Ignites 
+            AIIF Ignites 
             {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
           </Text3D>
         </Center>
