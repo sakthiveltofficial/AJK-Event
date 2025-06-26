@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-three/drei": "^10.3.0",
     "@react-three/fiber": "^9.1.2",
+    "@stagewise/toolbar-next": "^1.0.0",
+    "@stagewise-plugins/react": "^1.0.0",
     "@theatre/core": "^0.7.2",
     "@theatre/r3f": "^0.7.2",
     "@theatre/studio": "^0.7.2",
