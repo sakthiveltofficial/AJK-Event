@@ -35,36 +35,42 @@ function NavBar() {
           </span>
         </div>
 
-        <div className="menu__items font-audiowide  items-center justify-center gap-12 flex  group-hover:w-[40rem] overflow-hidden w-0 transition-all duration-1000 ease-in-out">
+        <div className="menu__items font-audiowide items-center justify-center gap-8 flex group-hover:w-[45rem] overflow-hidden w-0 transition-all duration-1000 ease-in-out">
           <Link
-            className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
             href="/"
           >
             Home
           </Link>
           <Link
-            className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
             href="/about"
           >
-            About
+            About us
           </Link>
           <Link
-            className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
-            href="/"
+            className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            href="/service"
           >
-            Services
+           Programs & Services
           </Link>
           <Link
-            className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            href="/resource"
+          >
+            Startups TN
+          </Link>
+          <Link
+            className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
             href="/resource"
           >
             Resource
           </Link>
           <Link
-            className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
             href="/"
           >
-            Contact
+            Contact us
           </Link>
         </div>
         <div className="menu__button ml-5">
