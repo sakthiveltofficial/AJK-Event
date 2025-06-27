@@ -9,7 +9,7 @@ function NavBar() {
     <div className="w-full h-[90px] fixed top-0 z-[40] flex items-center justify-between">
       <div className="logo__continer z-[200] flex items-center justify-center relative h-full bg-[#e5e5e5] w-[12rem] rounded-br-[28px]">
         <Image
-          className="w-[10rem] h-[55px] translate-y-[10px] translate-x-[10px]"
+          className="w-[10rem] h-[45px] translate-y-[10px] translate-x-[10px]"
           src={"/logo.png"}
           alt="SanthiGearsLogo"
           width={1080}
@@ -35,7 +35,7 @@ function NavBar() {
           </span>
         </div>
 
-        <div className="menu__items  items-center justify-center gap-12 flex  group-hover:w-[27rem] overflow-hidden w-0 transition-all duration-1000 ease-in-out">
+        <div className="menu__items font-audiowide  items-center justify-center gap-12 flex  group-hover:w-[40rem] overflow-hidden w-0 transition-all duration-1000 ease-in-out">
           <Link
             className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
             href="/"
@@ -44,7 +44,7 @@ function NavBar() {
           </Link>
           <Link
             className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
-            href="/"
+            href="/about"
           >
             About
           </Link>
@@ -53,6 +53,12 @@ function NavBar() {
             href="/"
           >
             Services
+          </Link>
+          <Link
+            className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
+            href="/resource"
+          >
+            Resource
           </Link>
           <Link
             className="text-black relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
