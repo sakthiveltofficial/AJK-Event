@@ -15,22 +15,22 @@ import studio from "@theatre/studio";
 import { editable as e } from "@theatre/r3f";
 import sequences from "@/../public/sequences/MainProject.theatre-project-state.json";
 
-// studio.initialize();
-// studio.extend(extension);
+studio.initialize();
+studio.extend(extension);
 
 function CanvesWrapper({ children }) {
   const project = getProject("MainProject", { state: sequences });
   const sheet = project.sheet("HeroScene");
   const cameraLookAtRef = useRef(null);
 
-  useEffect(() => {
-    project.ready.then(() => {
-      setTimeout(() => {
-        const sheet = project.sheet("HeroScene");
-        sheet.sequence.play();
-      }, 4000);
-    });
-  }, []);
+  // useEffect(() => {
+  //   project.ready.then(() => {
+  //     setTimeout(() => {
+  //       const sheet = project.sheet("HeroScene");
+  //       sheet.sequence.play();
+  //     }, 4000);
+  //   });
+  // }, []);
   
   return (
     <div className="w-full h-full relative p-5">
@@ -68,14 +68,14 @@ function CanvesWrapper({ children }) {
             </e.mesh>
             <BaseEnvironment />
             {children}
-            {/* <OrbitControls /> */}
+            <OrbitControls />
             <ambientLight intensity={0.5} />
-            {/* <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+            <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
               <GizmoViewport
                 axisColors={["red", "green", "blue"]}
                 labelColor="black"
               />
-            </GizmoHelper> */}
+            </GizmoHelper>
             {/* <Grid
           position={[0, -0.65, 0]}
           args={[150, 200]}
