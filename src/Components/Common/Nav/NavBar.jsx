@@ -4,10 +4,16 @@ import "./NavBar.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+
 function NavBar() {
+
+  const pathname = usePathname(); // Gets current path like "/contact", "/about", etc.
+
+
   return (
-    <div className="w-full h-[90px] fixed top-0 z-[40] flex items-center justify-between">
-      <div className="logo__continer z-[200] flex items-center justify-center relative h-full bg-[#e5e5e5] w-[12rem] rounded-br-[28px]">
+    <div className="w-full h-[90px] fixed top-0 z-[40] flex items-center justify-between ">
+      <div className={` ${pathname.split("/")[1] == "" ? "logo__continer" : "bg-white"} z-[200] flex items-center justify-center relative h-full bg-[#e5e5e5] w-[12rem] rounded-br-[28px]`}>
         <Image
           className="w-[10rem] h-[45px] translate-y-[10px] translate-x-[10px]"
           src={"/logo.png"}
@@ -16,7 +22,7 @@ function NavBar() {
           height={1024}
         />
       </div>
-      <div className="menu__continer group cursor-pointer  relative h-full bg-[#e5e5e5] pr-12 pl-5  w-fit flex items-center justify-center rounded-bl-[28px] ">
+      <div className={` ${pathname.split("/")[1] == "" ? "menu__continer" : "bg-white"} group cursor-pointer  relative h-full bg-[#e5e5e5] pr-12 pl-5  w-fit flex items-center justify-center rounded-bl-[28px] `}>
         <span
           className="group-hover:block mr-5 hidden  text-lg font-bold w-[20px] h-[20px] rounded-full"
           style={{ background: "linear-gradient(90deg, #ff9000, #cf1e00)" }}
@@ -56,7 +62,7 @@ function NavBar() {
           </Link>
           <Link
             className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
-            href="/resource"
+            href="/startups"
           >
             Startups TN
           </Link>
@@ -68,7 +74,7 @@ function NavBar() {
           </Link>
           <Link
             className="text-black text-sm whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#ff9000] after:to-[#cf1e00]"
-            href="/"
+            href="/contact"
           >
             Contact us
           </Link>

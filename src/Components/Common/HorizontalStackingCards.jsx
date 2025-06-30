@@ -68,7 +68,7 @@ const HorizontalStackingCards = () => {
       start: "center center+=60",
       end: "bottom center-=60",
       scroller: scrollerElement || window,
-      markers: true,
+    //   markers: true,
       onEnter: () => {
         // Kill any ongoing animations first
         cards.forEach(card => gsap.killTweensOf(card));

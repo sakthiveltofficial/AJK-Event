@@ -45,6 +45,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+  body{
+    background-color: #e5e5e5;
+  }
+
 /* Hide scrollbar but keep scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -83,6 +87,15 @@
   background-image: 
     radial-gradient(circle, #e5e7eb 0.5px, transparent 0.5px);
   background-size: 15px 15px;
+}
+
+/* 3D Hover Effect */
+.hover-3d {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(15deg) rotateY(-15deg);
 }
 
 :root {
