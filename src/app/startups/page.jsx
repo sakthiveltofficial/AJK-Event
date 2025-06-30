@@ -128,6 +128,7 @@ const CardDesign = ({data}) => {
 const page = () => {
 
     const containerRef = useRef(null);
+    const lightBlueRef = useRef(null);  // New light blue layer
     const cardRef = useRef(null);
     const textRef = useRef(null);
     const shadowRef = useRef(null);
@@ -135,12 +136,13 @@ const page = () => {
 
     useGSAP(() => {
         const container = containerRef.current;
+        const lightBlue = lightBlueRef.current;
         const card = cardRef.current;
         const text = textRef.current;
         const shadow = shadowRef.current;
         const circle = circleRef.current;
 
-        if (container && card && text && shadow && circle) {
+        if (container && lightBlue && card && text && shadow && circle) {
             // Hover animation - create layered 3D separation
             container.addEventListener('mouseenter', () => {
                 // Tilt the entire container
@@ -148,6 +150,16 @@ const page = () => {
                     duration: 0.8,
                     rotationX: 15,
                     rotationY: -20,
+                    ease: "power2.out"
+                });
+
+                // Layer 0: Light Blue div (deepest layer - only visible on hover)
+                gsap.to(lightBlue, {
+                    duration: 0.8,
+                    z: -150,
+                    rotationX: 3,
+                    rotationY: -3,
+                    opacity: 0.8,
                     ease: "power2.out"
                 });
 
@@ -212,6 +224,16 @@ const page = () => {
                     rotationY: 0,
                     scale: 1,
                     opacity: 1,
+                    ease: "power2.out"
+                });
+
+                // Light blue layer fades out completely
+                gsap.to(lightBlue, {
+                    duration: 0.6,
+                    z: 0,
+                    rotationX: 0,
+                    rotationY: 0,
+                    opacity: 0,  // Hide it again
                     ease: "power2.out"
                 });
             });
@@ -286,6 +308,20 @@ const page = () => {
                         minHeight: '320px'
                     }}
                 >
+                    {/* Layer 0: Light Blue Card Background (Deepest Layer - Hidden initially) */}
+                    <div 
+                        ref={lightBlueRef}
+                        className='absolute inset-0 rounded-2xl'
+                        style={{
+                            background: 'linear-gradient(135deg, #87CEEB, #87CEFA)',
+                            transformStyle: 'preserve-3d',
+                            transformOrigin: 'center center',
+                            zIndex: 0,
+                            opacity: 0  // Hidden initially
+                        }}
+                    >
+                    </div>
+
                     {/* Layer 1: Blue Card Background (Bottom Layer) */}
                     <div 
                         ref={cardRef}

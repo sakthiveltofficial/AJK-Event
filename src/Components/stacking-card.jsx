@@ -59,7 +59,7 @@ const StackingCards = ({ projects = [] }) => {
     // Clear any existing ScrollTriggers
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-    // Set up the stacking animation
+        // Set up the stacking animation
     cards.forEach((card, index) => {
       if (!card) return;
 
@@ -139,12 +139,12 @@ const StackingCards = ({ projects = [] }) => {
   }, [cardsData.length]);
 
   return (
-    <div className="relative ">
+    <div className="relative pb-[600px]">
 
       {/* Cards Container */}
       <div 
         ref={containerRef} 
-        className="relative h-[300vh] flex items-start justify-center pt-20"
+        className="relative h-[300vh] flex items-start justify-center pt-20 "
       >
         <div className="sticky top-20">
           {cardsData.map((project, index) => (
@@ -190,7 +190,7 @@ const StackingCards = ({ projects = [] }) => {
       </div>
 
       {/* Margin Bottom Space After Stacked Cards */}
-      <div className="h-[200px]"></div>
+      <div className="h-[400px]"></div>
     </div>
   );
 };

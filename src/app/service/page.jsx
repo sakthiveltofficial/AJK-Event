@@ -1,8 +1,54 @@
+"use client";
 import LayoutWrapper from '@/Components/Common/LayoutWrapper'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import HorizontalStackingCards from '@/Components/Common/HorizontalStackingCards'
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const page = () => {
+
+    const typewriterRef = useRef(null);
+    const cursorRef = useRef(null);
+    
+    useGSAP(() => {
+        const textElement = typewriterRef.current;
+        const cursor = cursorRef.current;
+        
+        if (textElement && cursor) {
+            const text = "Build awesome service with AJK";
+            
+            // Clear text
+            textElement.textContent = "";
+            
+            // Simple cursor blink
+            gsap.to(cursor, {
+                opacity: 0,
+                duration: 0.5,
+                repeat: -1,
+                yoyo: true
+            });
+            
+            // Clean typewriter effect
+            gsap.to({}, {
+                duration: text.length * 0.08, // Total duration
+                ease: "none",
+                onUpdate: function() {
+                    const progress = this.progress();
+                    const currentLength = Math.floor(progress * text.length);
+                    textElement.textContent = text.substring(0, currentLength);
+                },
+                onComplete: () => {
+                    // Stop cursor after 2 seconds
+                    gsap.to(cursor, {
+                        opacity: 0,
+                        duration: 0.3,
+                        delay: 2
+                    });
+                }
+            });
+        }
+    }, []);
+
   return (
     <>
     <LayoutWrapper>
@@ -21,46 +67,49 @@ const page = () => {
                 <HorizontalStackingCards />
             </div>
 
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae deserunt, sint quaerat quibusdam perferendis aut dolor ex suscipit rem eaque tempora quasi necessitatibus aperiam saepe recusandae vero modi delectus animi?
-                Adipisci vitae quos similique consequuntur quam alias eos fuga corrupti voluptatum. Rerum blanditiis, sunt autem expedita numquam deserunt. Veniam reiciendis culpa tempore harum tenetur ullam inventore aperiam deleniti assumenda officia!
-                Quasi, magni. Delectus excepturi mollitia nihil recusandae fugiat odit adipisci accusamus reiciendis hic. Tempore dolores labore sint eius mollitia deleniti explicabo, odio quam omnis dignissimos porro velit ducimus qui illum!
-                Harum aut nisi asperiores incidunt tempora sit laboriosam provident voluptatum explicabo! Ipsa atque, impedit voluptates rerum, maxime nemo illo maiores cupiditate nostrum, cumque consequatur tempora aperiam adipisci? A, eos ipsum?
-                Adipisci repudiandae omnis commodi quod quibusdam maiores obcaecati consequatur est sequi pariatur, porro reiciendis, dolores, temporibus doloremque. Quasi incidunt amet numquam reiciendis nisi, reprehenderit nostrum aut dolore quae voluptate doloremque.
-                Quae commodi eaque voluptatem dolores. Quam recusandae quisquam voluptatibus fugiat ullam vero, corrupti expedita aliquid autem commodi repudiandae adipisci quidem soluta rerum. Eos inventore pariatur magnam labore numquam, totam sit!
-                Tenetur, harum. Debitis, ea nobis dicta aliquam eius enim illo quaerat asperiores iusto provident mollitia accusamus delectus blanditiis quia magni, tenetur, consequuntur dolore perferendis quod. Voluptatibus ut distinctio a. Fugit?
-                Autem incidunt quia repudiandae facere sint animi, nihil delectus sequi esse nulla maxime exercitationem reiciendis beatae ratione dolorum harum ex neque est veritatis sunt. Libero ratione unde nulla similique praesentium.
-                Magnam, cupiditate repudiandae! Consequuntur perferendis totam laudantium eligendi dolores inventore suscipit sequi iusto eveniet debitis, doloribus voluptatibus corrupti, iure qui, reiciendis quibusdam recusandae est temporibus! Unde, reprehenderit. Repudiandae, obcaecati aut?
-                Ab iusto quis pariatur deserunt fugiat quas sequi sunt optio illo beatae nulla cupiditate sit natus praesentium doloremque aliquid repellendus iste odit, at facere hic minus rerum blanditiis? Explicabo, est?
+            <div className=' flex flex-col gap-[30px] place-content-center place-items-center mb-[50px]'>
+
+            <p>The road to freedom starts from here</p>
+
+            <div className='flex items-baseline justify-center'>
+                <p 
+                    ref={typewriterRef} 
+                    className='text-5xl font-bold bg-gradient-to-r from-gray-800 via-gray-900 to-black bg-clip-text text-transparent'
+                    style={{
+                        fontFamily: 'inherit',
+                        letterSpacing: '0.02em'
+                    }}
+                >
+                </p>
+                <span 
+                    ref={cursorRef} 
+                    className='text-5xl font-bold text-green-500 ml-1 inline-block'
+                    style={{ 
+                        lineHeight: '1',
+                        fontFamily: 'monospace',
+                        fontWeight: '900',
+                        textShadow: '0 0 10px rgba(78, 115, 255, 0.5)'
+                    }}
+                >
+                    |
+                </span>
             </div>
 
-            
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae deserunt, sint quaerat quibusdam perferendis aut dolor ex suscipit rem eaque tempora quasi necessitatibus aperiam saepe recusandae vero modi delectus animi?
-                Adipisci vitae quos similique consequuntur quam alias eos fuga corrupti voluptatum. Rerum blanditiis, sunt autem expedita numquam deserunt. Veniam reiciendis culpa tempore harum tenetur ullam inventore aperiam deleniti assumenda officia!
-                Quasi, magni. Delectus excepturi mollitia nihil recusandae fugiat odit adipisci accusamus reiciendis hic. Tempore dolores labore sint eius mollitia deleniti explicabo, odio quam omnis dignissimos porro velit ducimus qui illum!
-                Harum aut nisi asperiores incidunt tempora sit laboriosam provident voluptatum explicabo! Ipsa atque, impedit voluptates rerum, maxime nemo illo maiores cupiditate nostrum, cumque consequatur tempora aperiam adipisci? A, eos ipsum?
-                Adipisci repudiandae omnis commodi quod quibusdam maiores obcaecati consequatur est sequi pariatur, porro reiciendis, dolores, temporibus doloremque. Quasi incidunt amet numquam reiciendis nisi, reprehenderit nostrum aut dolore quae voluptate doloremque.
-                Quae commodi eaque voluptatem dolores. Quam recusandae quisquam voluptatibus fugiat ullam vero, corrupti expedita aliquid autem commodi repudiandae adipisci quidem soluta rerum. Eos inventore pariatur magnam labore numquam, totam sit!
-                Tenetur, harum. Debitis, ea nobis dicta aliquam eius enim illo quaerat asperiores iusto provident mollitia accusamus delectus blanditiis quia magni, tenetur, consequuntur dolore perferendis quod. Voluptatibus ut distinctio a. Fugit?
-                Autem incidunt quia repudiandae facere sint animi, nihil delectus sequi esse nulla maxime exercitationem reiciendis beatae ratione dolorum harum ex neque est veritatis sunt. Libero ratione unde nulla similique praesentium.
-                Magnam, cupiditate repudiandae! Consequuntur perferendis totam laudantium eligendi dolores inventore suscipit sequi iusto eveniet debitis, doloribus voluptatibus corrupti, iure qui, reiciendis quibusdam recusandae est temporibus! Unde, reprehenderit. Repudiandae, obcaecati aut?
-                Ab iusto quis pariatur deserunt fugiat quas sequi sunt optio illo beatae nulla cupiditate sit natus praesentium doloremque aliquid repellendus iste odit, at facere hic minus rerum blanditiis? Explicabo, est?
+            <div className=' flex flex-row gap-[20px]'>
+            <button
+                    type="submit"
+                    className="w-fit px-[30px] py-[5px] bg-transparent text-[#4e73ff] font-outfit font-medium text-[14px] leading-[30px] rounded-md flex items-center justify-center gap-2 border relative overflow-hidden group transition-colors duration-300 cursor-pointer border-[#4e73ff]"
+                    >
+                    <div className="absolute inset-0 bg-[#4e73ff] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                        Contact us
+                    </span>
+                    </button>
+                <button className=' px-[20px] py-[10px] rounded border cursor-pointer '>Sign up</button>
             </div>
 
-            
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae deserunt, sint quaerat quibusdam perferendis aut dolor ex suscipit rem eaque tempora quasi necessitatibus aperiam saepe recusandae vero modi delectus animi?
-                Adipisci vitae quos similique consequuntur quam alias eos fuga corrupti voluptatum. Rerum blanditiis, sunt autem expedita numquam deserunt. Veniam reiciendis culpa tempore harum tenetur ullam inventore aperiam deleniti assumenda officia!
-                Quasi, magni. Delectus excepturi mollitia nihil recusandae fugiat odit adipisci accusamus reiciendis hic. Tempore dolores labore sint eius mollitia deleniti explicabo, odio quam omnis dignissimos porro velit ducimus qui illum!
-                Harum aut nisi asperiores incidunt tempora sit laboriosam provident voluptatum explicabo! Ipsa atque, impedit voluptates rerum, maxime nemo illo maiores cupiditate nostrum, cumque consequatur tempora aperiam adipisci? A, eos ipsum?
-                Adipisci repudiandae omnis commodi quod quibusdam maiores obcaecati consequatur est sequi pariatur, porro reiciendis, dolores, temporibus doloremque. Quasi incidunt amet numquam reiciendis nisi, reprehenderit nostrum aut dolore quae voluptate doloremque.
-                Quae commodi eaque voluptatem dolores. Quam recusandae quisquam voluptatibus fugiat ullam vero, corrupti expedita aliquid autem commodi repudiandae adipisci quidem soluta rerum. Eos inventore pariatur magnam labore numquam, totam sit!
-                Tenetur, harum. Debitis, ea nobis dicta aliquam eius enim illo quaerat asperiores iusto provident mollitia accusamus delectus blanditiis quia magni, tenetur, consequuntur dolore perferendis quod. Voluptatibus ut distinctio a. Fugit?
-                Autem incidunt quia repudiandae facere sint animi, nihil delectus sequi esse nulla maxime exercitationem reiciendis beatae ratione dolorum harum ex neque est veritatis sunt. Libero ratione unde nulla similique praesentium.
-                Magnam, cupiditate repudiandae! Consequuntur perferendis totam laudantium eligendi dolores inventore suscipit sequi iusto eveniet debitis, doloribus voluptatibus corrupti, iure qui, reiciendis quibusdam recusandae est temporibus! Unde, reprehenderit. Repudiandae, obcaecati aut?
-                Ab iusto quis pariatur deserunt fugiat quas sequi sunt optio illo beatae nulla cupiditate sit natus praesentium doloremque aliquid repellendus iste odit, at facere hic minus rerum blanditiis? Explicabo, est?
             </div>
+
 
             
         </div>
