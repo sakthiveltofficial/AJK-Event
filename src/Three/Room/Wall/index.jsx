@@ -8,7 +8,7 @@ function Wall() {
   // Create video element and set up
   const [video] = useState(() => 
     Object.assign(document.createElement('video'), { 
-      src: '/video/nion.webm', 
+      src: '/video/white_bg.webm', 
       crossOrigin: 'Anonymous', 
       loop: true, 
       muted: true,
@@ -52,8 +52,8 @@ function Wall() {
   // Create a shape with a hole
   const wallGeometry = useMemo(() => {
     // Wall dimensions
-    const wallWidth = 70;
-    const wallHeight = 40;
+    const wallWidth = 100;
+    const wallHeight = 60;
 
     // Define the six corner points of the hexagonal hole
     // Format: [x, y] coordinates
@@ -144,7 +144,7 @@ function Wall() {
             letterSpacing={0.15}
           >
             AIIF Ignites 
-            {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
+            <meshBasicMaterial toneMapped={false} map={videoTexture} />
           </Text3D>
         </Center>
       </group>

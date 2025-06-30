@@ -13,24 +13,24 @@ import { PerspectiveCamera, SheetProvider } from "@theatre/r3f";
 import extension from "@theatre/r3f/dist/extension";
 import studio from "@theatre/studio";
 import { editable as e } from "@theatre/r3f";
-import sequences from "@/../public/sequences/MainProject.theatre-project-state.json";
+import sequences from "@/../public/sequences/MainProject.theatre-project-state_1.json";
 
 // studio.initialize();
 // studio.extend(extension);
 
 function CanvesWrapper({ children }) {
-  const project = getProject("MainProject", {});
+  const project = getProject("MainProject", { state: sequences });
   const sheet = project.sheet("HeroScene");
   const cameraLookAtRef = useRef(null);
 
-  // useEffect(() => {
-  //   project.ready.then(() => {
-  //     setTimeout(() => {
-  //       const sheet = project.sheet("HeroScene");
-  //       sheet.sequence.play();
-  //     }, 4000);
-  //   });
-  // }, []);
+  useEffect(() => {
+    project.ready.then(() => {
+      setTimeout(() => {
+        const sheet = project.sheet("HeroScene");
+        sheet.sequence.play();
+      }, 4000);
+    });
+  }, []);
 
   return (
     <div className="w-full h-full relative p-5">
@@ -49,13 +49,13 @@ function CanvesWrapper({ children }) {
           }}
         >
           <SheetProvider sheet={sheet}>
-            {/* <PerspectiveCamera
+            <PerspectiveCamera
               makeDefault
               position={[0, 2, 50]}
               fov={70}
               theatreKey="camera"
               lookAt={cameraLookAtRef}
-            /> */}
+            />
             <e.mesh
               theatreKey="camera_lookAt"
               visible="editor"

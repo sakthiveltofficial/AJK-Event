@@ -1,13 +1,18 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { editable as e } from "@theatre/r3f";
 
 export const RoomWithRobo = React.forwardRef((props, ref) => {
+  const animationRef = useRef();
   const { nodes, materials, animations } = useGLTF(
     "/models/RoomWithRobo/RoomWithRobo.glb"
   );
-  const { actions } = useAnimations(animations, ref);
+  const { actions, clips, names } = useAnimations(animations, animationRef);
+
+  useEffect(() => {
+    console.log(clips, names, actions, animations);
+  }, [actions, clips, names]);
   return (
     <group ref={ref} {...props} dispose={null}>
       <group name="Scene">
@@ -17,7 +22,11 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <group name="root">
-            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
+            <group
+              name="GLTF_SceneRootNode"
+              ref={animationRef}
+              rotation={[Math.PI / 2, 0, 0]}
+            >
               <group name="Cylinder_78">
                 <mesh
                   name="Object_150"
@@ -1896,7 +1905,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Tunnel_Loop_M.001"]}
                     />
                   </group>
-                  <e.group theatreKey="room2_backDoor_left" name="Tunnel_door_L2">
+                  <e.group
+                    theatreKey="room2_backDoor_left"
+                    name="Tunnel_door_L2"
+                  >
                     <mesh
                       name="Tunnel_door_L2_Scifi_Tunnel_Door_0"
                       castShadow
@@ -1907,7 +1919,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Tunnel_Door.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_backDoor_right" name="Tunnel_door_R2">
+                  <e.group
+                    theatreKey="room2_backDoor_right"
+                    name="Tunnel_door_R2"
+                  >
                     <mesh
                       name="Tunnel_door_R2_Scifi_Tunnel_Door_0"
                       castShadow
@@ -1940,7 +1955,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       />
                     </group>
                   </group>
-                  <e.group theatreKey="room2_frontDoor_left" name="Tunnel_Exit_L_Door">
+                  <e.group
+                    theatreKey="room2_frontDoor_left"
+                    name="Tunnel_Exit_L_Door"
+                  >
                     <mesh
                       name="Tunnel_Exit_L_Door_Scifi_Tunnel_Door_0"
                       castShadow
@@ -1951,7 +1969,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Tunnel_Door.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_frontDoor_right" name="Tunnel_Exit_R_Door">
+                  <e.group
+                    theatreKey="room2_frontDoor_right"
+                    name="Tunnel_Exit_R_Door"
+                  >
                     <mesh
                       name="Tunnel_Exit_R_Door_Scifi_Tunnel_Door_0"
                       castShadow
@@ -1962,10 +1983,11 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Tunnel_Door.001"]}
                     />
                   </e.group>
-   
-     
-             
-                  <e.group theatreKey="room2_3rdDoor_left" name="Tunnel_Glass_L_Door1">
+
+                  <e.group
+                    theatreKey="room2_3rdDoor_left"
+                    name="Tunnel_Glass_L_Door1"
+                  >
                     <mesh
                       name="Tunnel_Glass_L_Door1_Scifi_Door_Glass_0"
                       castShadow
@@ -1976,7 +1998,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Door_Glass.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_3rdDoor_right" name="Tunnel_Glass_R_Door">
+                  <e.group
+                    theatreKey="room2_3rdDoor_right"
+                    name="Tunnel_Glass_R_Door"
+                  >
                     <mesh
                       name="Tunnel_Glass_R_Door_Scifi_Door_Glass_0"
                       castShadow
@@ -1987,7 +2012,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Door_Glass.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_2ndDoor_right" name="Tunnel_Glass_R_Door1">
+                  <e.group
+                    theatreKey="room2_2ndDoor_right"
+                    name="Tunnel_Glass_R_Door1"
+                  >
                     <mesh
                       name="Tunnel_Glass_R_Door1_Scifi_Door_Glass_0"
                       castShadow
@@ -1998,7 +2026,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Door_Glass.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_2ndDoor_left" name="Tunnel_Glass_L_Door">
+                  <e.group
+                    theatreKey="room2_2ndDoor_left"
+                    name="Tunnel_Glass_L_Door"
+                  >
                     <mesh
                       name="Tunnel_Glass_L_Door_Scifi_Door_Glass_0"
                       castShadow
@@ -2009,7 +2040,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Door_Glass.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_1stDoor_right" name="Tunnel_Glass_R_Door2">
+                  <e.group
+                    theatreKey="room2_1stDoor_right"
+                    name="Tunnel_Glass_R_Door2"
+                  >
                     <mesh
                       name="Tunnel_Glass_R_Door2_Scifi_Door_Glass_0"
                       castShadow
@@ -2020,7 +2054,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Door_Glass.001"]}
                     />
                   </e.group>
-                  <e.group theatreKey="room2_1stDoor_left" name="Tunnel_Glass_L_Door2">
+                  <e.group
+                    theatreKey="room2_1stDoor_left"
+                    name="Tunnel_Glass_L_Door2"
+                  >
                     <mesh
                       name="Tunnel_Glass_L_Door2_Scifi_Door_Glass_0"
                       castShadow
@@ -2031,7 +2068,7 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       material={materials["Scifi_Door_Glass.001"]}
                     />
                   </e.group>
-            
+
                   <group name="Tunnel_Loop1">
                     <group name="Frame">
                       <mesh
@@ -2200,7 +2237,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       position={[0, -883.329, -725.606]}
                     />
                   </group>
-                  <e.group theatreKey="room1_backDoor_left" name="Tunnel_door_L2001">
+                  <e.group
+                    theatreKey="room1_backDoor_left"
+                    name="Tunnel_door_L2001"
+                  >
                     <mesh
                       name="Tunnel_door_L2_Scifi_Tunnel_Door_0001"
                       castShadow
@@ -2212,7 +2252,10 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       position={[0, -883.329, -674.111]}
                     />
                   </e.group>
-                  <e.group theatreKey="room1_backDoor_right" name="Tunnel_door_R2001">
+                  <e.group
+                    theatreKey="room1_backDoor_right"
+                    name="Tunnel_door_R2001"
+                  >
                     <mesh
                       name="Tunnel_door_R2_Scifi_Tunnel_Door_0001"
                       castShadow
@@ -2238,64 +2281,99 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
                       />
                     </group>
                   </group>
-                  <e.group theatreKey="room1_frontDoor_left" name="Tunnel_Exit_L_Door001" position={[0, 0, 0]}>
+                  <e.group
+                    theatreKey="room1_frontDoor_left"
+                    name="Tunnel_Exit_L_Door001"
+                    position={[0, 0, 0]}
+                  >
                     <mesh
                       name="Tunnel_Exit_L_Door_Scifi_Tunnel_Door_0001"
                       castShadow
                       receiveShadow
-                      geometry={nodes.Tunnel_Exit_L_Door_Scifi_Tunnel_Door_0001.geometry}
-                      material={materials['Scifi_Tunnel_Door.002']}
+                      geometry={
+                        nodes.Tunnel_Exit_L_Door_Scifi_Tunnel_Door_0001.geometry
+                      }
+                      material={materials["Scifi_Tunnel_Door.002"]}
                       position={[0, -883.329, -725.606]}
                     />
                   </e.group>
-                  <e.group theatreKey="room1_frontDoor_right" name="Tunnel_Exit_R_Door001" position={[0, 0, 0]}>
+                  <e.group
+                    theatreKey="room1_frontDoor_right"
+                    name="Tunnel_Exit_R_Door001"
+                    position={[0, 0, 0]}
+                  >
                     <mesh
                       name="Tunnel_Exit_R_Door_Scifi_Tunnel_Door_0001"
                       castShadow
                       receiveShadow
-                      geometry={nodes.Tunnel_Exit_R_Door_Scifi_Tunnel_Door_0001.geometry}
-                      material={materials['Scifi_Tunnel_Door.002']}
+                      geometry={
+                        nodes.Tunnel_Exit_R_Door_Scifi_Tunnel_Door_0001.geometry
+                      }
+                      material={materials["Scifi_Tunnel_Door.002"]}
                       position={[0, -883.329, -725.606]}
                     />
                   </e.group>
 
-                  <e.group theatreKey="room1_1stDoor_left" name="Tunnel_Glass_L_Door2001">
+                  <e.group
+                    theatreKey="room1_1stDoor_left"
+                    name="Tunnel_Glass_L_Door2001"
+                  >
                     <mesh
                       name="Tunnel_Glass_L_Door2_Scifi_Door_Glass_0001"
                       castShadow
                       receiveShadow
-                      geometry={nodes.Tunnel_Glass_L_Door2_Scifi_Door_Glass_0001.geometry}
-                      material={materials['Scifi_Door_Glass.002']}
+                      geometry={
+                        nodes.Tunnel_Glass_L_Door2_Scifi_Door_Glass_0001
+                          .geometry
+                      }
+                      material={materials["Scifi_Door_Glass.002"]}
                       position={[0, -883.329, -725.606]}
                     />
                   </e.group>
-                  <e.group theatreKey="room1_1stDoor_right" name="Tunnel_Glass_R_Door2001">
+                  <e.group
+                    theatreKey="room1_1stDoor_right"
+                    name="Tunnel_Glass_R_Door2001"
+                  >
                     <mesh
                       name="Tunnel_Glass_R_Door2_Scifi_Door_Glass_0001"
                       castShadow
                       receiveShadow
-                      geometry={nodes.Tunnel_Glass_R_Door2_Scifi_Door_Glass_0001.geometry}
-                      material={materials['Scifi_Door_Glass.002']}
+                      geometry={
+                        nodes.Tunnel_Glass_R_Door2_Scifi_Door_Glass_0001
+                          .geometry
+                      }
+                      material={materials["Scifi_Door_Glass.002"]}
                       position={[0, -883.329, -725.606]}
                     />
                   </e.group>
-                  <e.group theatreKey="room1_2ndDoor_left" name="Tunnel_Glass_L_Door001">
+                  <e.group
+                    theatreKey="room1_2ndDoor_left"
+                    name="Tunnel_Glass_L_Door001"
+                  >
                     <mesh
                       name="Tunnel_Glass_L_Door_Scifi_Door_Glass_0001"
                       castShadow
                       receiveShadow
-                      geometry={nodes.Tunnel_Glass_L_Door_Scifi_Door_Glass_0001.geometry}
-                      material={materials['Scifi_Door_Glass.002']}
+                      geometry={
+                        nodes.Tunnel_Glass_L_Door_Scifi_Door_Glass_0001.geometry
+                      }
+                      material={materials["Scifi_Door_Glass.002"]}
                       position={[0, -883.329, -725.606]}
                     />
                   </e.group>
-                  <e.group theatreKey="room1_2ndDoor_right" name="Tunnel_Glass_R_Door1001">
+                  <e.group
+                    theatreKey="room1_2ndDoor_right"
+                    name="Tunnel_Glass_R_Door1001"
+                  >
                     <mesh
                       name="Tunnel_Glass_R_Door1_Scifi_Door_Glass_0001"
                       castShadow
                       receiveShadow
-                      geometry={nodes.Tunnel_Glass_R_Door1_Scifi_Door_Glass_0001.geometry}
-                      material={materials['Scifi_Door_Glass.002']}
+                      geometry={
+                        nodes.Tunnel_Glass_R_Door1_Scifi_Door_Glass_0001
+                          .geometry
+                      }
+                      material={materials["Scifi_Door_Glass.002"]}
                       position={[0, -883.329, -725.606]}
                     />
                   </e.group>
