@@ -97,7 +97,7 @@ function Wall() {
 
   return (
     <group>
-      <mesh position={[0, 2.4, 34]} rotation={[0, 0, 0]}>
+      <mesh position={[0, 2.4, 34.3]} rotation={[0, 0, 0]}>
         <primitive object={wallGeometry} />
         <meshStandardMaterial
           map={colorMap}
@@ -109,7 +109,7 @@ function Wall() {
         />
       </mesh>
 
-      <group position={[-11, 5.5, 33.85]}>
+      <group position={[-11, 5.5, 34.1]}>
         <Center>
           <Text3D
             font="/fonts/Roman.json"
@@ -129,7 +129,7 @@ function Wall() {
         </Center>
       </group>
 
-      <group position={[-11, 3.9, 33.9]}>
+      <group position={[-11, 3.9, 34.2]}>
         <Center>
           <Text3D
             font="/fonts/Azonix_Regular.json"

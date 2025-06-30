@@ -19,7 +19,7 @@ import sequences from "@/../public/sequences/MainProject.theatre-project-state.j
 // studio.extend(extension);
 
 function CanvesWrapper({ children }) {
-  const project = getProject("MainProject", { state: sequences });
+  const project = getProject("MainProject", {});
   const sheet = project.sheet("HeroScene");
   const cameraLookAtRef = useRef(null);
 
@@ -31,7 +31,7 @@ function CanvesWrapper({ children }) {
   //     }, 4000);
   //   });
   // }, []);
-  
+
   return (
     <div className="w-full h-full relative p-5">
       <div className="w-full h-full relative bg-black rounded-[3rem] overflow-hidden">
@@ -49,13 +49,13 @@ function CanvesWrapper({ children }) {
           }}
         >
           <SheetProvider sheet={sheet}>
-            <PerspectiveCamera
+            {/* <PerspectiveCamera
               makeDefault
               position={[0, 2, 50]}
               fov={70}
               theatreKey="camera"
               lookAt={cameraLookAtRef}
-            />
+            /> */}
             <e.mesh
               theatreKey="camera_lookAt"
               visible="editor"
