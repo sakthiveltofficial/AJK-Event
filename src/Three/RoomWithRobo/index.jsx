@@ -11,7 +11,7 @@ export const RoomWithRobo = React.forwardRef((props, ref) => {
   const { actions, clips, names } = useAnimations(animations, animationRef);
 
   useEffect(() => {
-    console.log(clips, names, actions, animations);
+    actions.Animation.play();
   }, [actions, clips, names]);
   return (
     <group ref={ref} {...props} dispose={null}>

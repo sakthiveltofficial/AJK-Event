@@ -8,7 +8,7 @@ function Wall() {
   // Create video element and set up
   const [video] = useState(() => 
     Object.assign(document.createElement('video'), { 
-      src: '/video/white_bg.webm', 
+      src: '/video/GettyImages-1396810830.mp4', 
       crossOrigin: 'Anonymous', 
       loop: true, 
       muted: true,
