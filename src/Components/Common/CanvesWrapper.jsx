@@ -15,8 +15,8 @@ import studio from "@theatre/studio";
 import { editable as e } from "@theatre/r3f";
 import sequences from "@/../public/sequences/MainProject.theatre-project-state.json";
 
-studio.initialize();
-studio.extend(extension);
+// studio.initialize();
+// studio.extend(extension);
 
 function CanvesWrapper({ children }) {
   const project = getProject("MainProject", { state: sequences });
