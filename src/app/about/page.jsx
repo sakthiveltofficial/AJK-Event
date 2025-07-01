@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { FaQuoteLeft } from "react-icons/fa6";
 import Mission from "./Mission";
 import WhyWeExist from "./WhyWeExist";
+import ScrollFan from "./scroll-fan";
 
 // Register GSAP with React
 gsap.registerPlugin(useGSAP);
@@ -104,9 +105,12 @@ function page() {
               </div>
             </div>
 
+
             {/* section 4 - Mission */}
-            <div className=" my-[10rem]">
-            <Mission />
+            <div className=" my-[10rem] ">
+            {/* <Mission /> */}
+
+            <ScrollFan />
             </div>
 
 
@@ -115,7 +119,7 @@ function page() {
             </div>
           
         </div>
-      </LayoutWrapper>
+      </LayoutWrapper> 
     </>
   );
 }
