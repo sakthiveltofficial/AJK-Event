@@ -92,7 +92,7 @@ function ScrollbasedAnimation({ project }) {
       if (!introPlayed || !projectReady) return;
 
       e.preventDefault();
-      const scrollSpeed = 0.0008;
+      const scrollSpeed = 0.001;
       const deltaY = e.deltaY * scrollSpeed;
       
       const newTarget = Math.max(
