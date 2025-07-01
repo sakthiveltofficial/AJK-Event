@@ -8,8 +8,11 @@ const easeOutCubic = (x) => {
   return 1 - Math.pow(1 - x, 3);
 };
 
-const easeInOutQuad = (x) => {
-  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+// Gentler easing function for smoother motion
+const easeInOutQuint = (x) => {
+  return x < 0.5 
+    ? 16 * x * x * x * x * x
+    : 1 - Math.pow(-2 * x + 2, 5) / 2;
 };
 
 function ScrollbasedAnimation({ project }) {
@@ -24,7 +27,8 @@ function ScrollbasedAnimation({ project }) {
   const [projectReady, setProjectReady] = useState(false);
   const totalDuration = val(sheet.sequence.pointer.length);
   const INTRO_DURATION = 4; // Duration of intro animation
-  const INTRO_ANIMATION_DURATION = 2.5; // Duration in seconds for the intro animation
+  const INTRO_ANIMATION_DURATION = 6.5; // Increased duration for slower animation
+  const INITIAL_DELAY = 100; // Increased initial delay
 
   // Wait for project to be ready
   useEffect(() => {
@@ -47,25 +51,34 @@ function ScrollbasedAnimation({ project }) {
       const elapsed = (timestamp - startTime) / 1000; // Convert to seconds
       const progress = Math.min(elapsed / INTRO_ANIMATION_DURATION, 1);
       
-      // Apply easing to make the animation smooth
-      const easedProgress = easeInOutQuad(progress);
+      // Apply gentler easing for smoother motion
+      const easedProgress = easeInOutQuint(progress);
       const currentPosition = easedProgress * INTRO_DURATION;
       
-      sheet.sequence.position = currentPosition;
-      scrollRef.current.current = currentPosition;
-      scrollRef.current.target = currentPosition;
+      // Add small smoothing to the position update
+      const smoothness = 0.1;
+      const currentAnimPos = sheet.sequence.position;
+      const newPosition = currentAnimPos + (currentPosition - currentAnimPos) * smoothness;
+      
+      sheet.sequence.position = newPosition;
+      scrollRef.current.current = newPosition;
+      scrollRef.current.target = newPosition;
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animateIntro);
       } else {
+        // Ensure we end exactly at INTRO_DURATION
+        sheet.sequence.position = INTRO_DURATION;
+        scrollRef.current.current = INTRO_DURATION;
+        scrollRef.current.target = INTRO_DURATION;
         setIntroPlayed(true);
       }
     };
 
-    // Add a small delay before starting the intro animation
+    // Add a longer delay before starting the intro animation
     setTimeout(() => {
       animationFrame = requestAnimationFrame(animateIntro);
-    }, 500);
+    }, INITIAL_DELAY);
 
     return () => {
       if (animationFrame) {
