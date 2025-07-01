@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         {/* <StagewiseToolbar config={{ plugins: [ReactPlugin] }} /> */}
         <div className="w-full h-full bg-red-500">
 
-        </div>
+        </div> */}
         <NavBar />
         {children}
       </body>
