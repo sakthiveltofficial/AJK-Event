@@ -1,41 +1,61 @@
 import React, { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useCurrentSheet } from "@theatre/r3f";
-import {val} from "@theatre/core"
+import { val } from "@theatre/core";
 
 function ScrollbasedAnimation({ project }) {
   const sheet = useCurrentSheet();
-  const animationRef = useRef({ velocity: 0, targetPosition: 0 });
-  const totalDuration = val(sheet.sequence.pointer.length)
-  console.log(totalDuration)
-  
+  const scrollRef = useRef({
+    current: 0,
+    target: 0,
+    velocity: 0,
+    lastScrollTime: 0,
+  });
+  const totalDuration = val(sheet.sequence.pointer.length);
+
   useEffect(() => {
-    if (sheet) {
-      animationRef.current.targetPosition = sheet.sequence.position;
-    }
-  }, [sheet]);
+    const handleWheel = (e) => {
+      e.preventDefault();
+      const scrollSpeed = 0.0008; // Reduced scroll sensitivity for more control
+      const deltaY = e.deltaY * scrollSpeed;
+      
+      // Update target position based on scroll direction with smoother acceleration
+      const newTarget = Math.max(
+        0,
+        Math.min(totalDuration, scrollRef.current.target + deltaY)
+      );
+      
+      scrollRef.current.target = newTarget;
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [totalDuration]);
 
   useFrame((state, delta) => {
     if (!sheet) return;
+
+    const { current, target } = scrollRef.current;
     
-    // Smooth interpolation with easing
-    const currentPos = sheet.sequence.position;
-    const targetPos = animationRef.current.targetPosition;
-    const distance = targetPos - currentPos;
+    // Calculate distance to target
+    const distance = target - current;
     
-    // Apply smooth easing (adjust 0.05 for different smoothness)
-    const easing = 0.05;
-    const newPosition = currentPos + distance * easing;
+    // Use lerp (linear interpolation) instead of spring physics for smoother movement
+    const smoothness = 0.075; // Adjust this value for smoothness (lower = smoother)
     
-    // Add subtle velocity for smoother motion
-    animationRef.current.velocity = (newPosition - currentPos) * 0.1;
+    // Update current position with lerp
+    scrollRef.current.current += distance * smoothness;
     
-    sheet.sequence.position = newPosition + animationRef.current.velocity;
+    // Clamp position between 0 and total duration
+    scrollRef.current.current = Math.max(
+      0,
+      Math.min(totalDuration, scrollRef.current.current)
+    );
     
-    // Update target position for continuous animation
-    animationRef.current.targetPosition += delta * 0.3;
+    // Apply to theatre.js sequence
+    sheet.sequence.position = scrollRef.current.current;
   });
-  
+
   return null;
 }
 

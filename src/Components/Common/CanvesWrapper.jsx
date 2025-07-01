@@ -16,28 +16,24 @@ import { editable as e } from "@theatre/r3f";
 import sequences from "@/../public/sequences/MainProject.theatre-project-state_2.json";
 import ScrollbasedAnimation from "@/Three/RoomWithRobo/Animation/ScrollbasedAnimation";
 
-// studio.initialize();
-// studio.extend(extension);
+// Initialize Theatre.js studio in development mode only
+// if (process.env.NODE_ENV === 'development') {
+//   studio.initialize();
+//   studio.extend(extension);
+// }
 
 function CanvesWrapper({ children }) {
   const project = getProject("MainProject", { state: sequences });
   const sheet = project.sheet("HeroScene");
   const cameraLookAtRef = useRef(null);
 
-  // useEffect(() => {
-  //   // project.ready.then(() => {
-  //   //   setTimeout(() => {
-  //   //     const sheet = project.sheet("HeroScene");
-  //   //     sheet.sequence.play();
-  //   //   }, 4000);
-  //   // });
-
-  //   project.ready.then(()=>{
-  //     const sheet = project.sheet("HeroScene");
-  //     console.log(sheet.sequence)
-  //     sheet.sequence.position =10
-  //   })
-  // }, []);
+  useEffect(() => {
+    // Prevent default scrolling behavior
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <div className="w-full h-full relative p-5">
@@ -76,7 +72,7 @@ function CanvesWrapper({ children }) {
             </e.mesh>
             <BaseEnvironment />
             {children}
-            <OrbitControls />
+            {/* <OrbitControls  /> */}
             <ambientLight intensity={0.5} />
             <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
               <GizmoViewport
