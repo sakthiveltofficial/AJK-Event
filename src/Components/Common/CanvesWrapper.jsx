@@ -1,5 +1,5 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import {
   GizmoHelper,
   GizmoViewport,
@@ -14,6 +14,7 @@ import extension from "@theatre/r3f/dist/extension";
 import studio from "@theatre/studio";
 import { editable as e } from "@theatre/r3f";
 import sequences from "@/../public/sequences/MainProject.theatre-project-state_2.json";
+import ScrollbasedAnimation from "@/Three/RoomWithRobo/Animation/ScrollbasedAnimation";
 
 // studio.initialize();
 // studio.extend(extension);
@@ -23,14 +24,20 @@ function CanvesWrapper({ children }) {
   const sheet = project.sheet("HeroScene");
   const cameraLookAtRef = useRef(null);
 
-  useEffect(() => {
-    project.ready.then(() => {
-      setTimeout(() => {
-        const sheet = project.sheet("HeroScene");
-        sheet.sequence.play();
-      }, 4000);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // project.ready.then(() => {
+  //   //   setTimeout(() => {
+  //   //     const sheet = project.sheet("HeroScene");
+  //   //     sheet.sequence.play();
+  //   //   }, 4000);
+  //   // });
+
+  //   project.ready.then(()=>{
+  //     const sheet = project.sheet("HeroScene");
+  //     console.log(sheet.sequence)
+  //     sheet.sequence.position =10
+  //   })
+  // }, []);
 
   return (
     <div className="w-full h-full relative p-5">
@@ -49,6 +56,7 @@ function CanvesWrapper({ children }) {
           }}
         >
           <SheetProvider sheet={sheet}>
+            <ScrollbasedAnimation project={project} />
             <PerspectiveCamera
               makeDefault
               position={[0, 2, 50]}
