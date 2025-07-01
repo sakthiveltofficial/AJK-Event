@@ -23,14 +23,14 @@ function CanvesWrapper({ children }) {
   const sheet = project.sheet("HeroScene");
   const cameraLookAtRef = useRef(null);
 
-  // useEffect(() => {
-  //   project.ready.then(() => {
-  //     setTimeout(() => {
-  //       const sheet = project.sheet("HeroScene");
-  //       sheet.sequence.play();
-  //     }, 4000);
-  //   });
-  // }, []);
+  useEffect(() => {
+    project.ready.then(() => {
+      setTimeout(() => {
+        const sheet = project.sheet("HeroScene");
+        sheet.sequence.play();
+      }, 4000);
+    });
+  }, []);
 
   return (
     <div className="w-full h-full relative p-5">
