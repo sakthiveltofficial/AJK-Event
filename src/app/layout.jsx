@@ -1,6 +1,9 @@
+"use client";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {NavBar} from "@/Components/Common/Nav/NavBar";
+import { NavBar } from "@/Components/Common/Nav/NavBar";
+// import { StagewiseToolbar } from '@stagewise/toolbar-next';
+// import { ReactPlugin } from '@stagewise-plugins/react';
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -19,10 +22,9 @@ import {NavBar} from "@/Components/Common/Nav/NavBar";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={``}
-      >
-        {/* <div className="w-full h-full bg-red-500">
+      <body className="overflow-hidden">
+        {/* <StagewiseToolbar config={{ plugins: [ReactPlugin] }} /> */}
+        <div className="w-full h-full bg-red-500">
 
         </div> */}
         <NavBar />

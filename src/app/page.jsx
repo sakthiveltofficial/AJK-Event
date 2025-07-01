@@ -1,8 +1,11 @@
 "use client";
 import CanvesWrapper from "@/Components/Common/CanvesWrapper";
 import Wall from "@/Three/Room/Wall";
-import { Idel } from "@/Three/Room/Scene";
 import { Loader } from "@react-three/drei";
+import { RoboRoom  } from "@/Three/Robo/RoboRoom";
+import { Robo } from "@/Three/Robo";
+import Idel from "@/Three/RoomWithRobo/Scene/Idel";
+// import { Model } from "@/Three/model";
 
 export default function Home() {
   return (
@@ -10,7 +13,8 @@ export default function Home() {
       <Loader />
       <CanvesWrapper>
         <Idel />
-        <Wall />
+        <Wall /> 
+        {/* <Model/> */}
       </CanvesWrapper>
     </div>
   );

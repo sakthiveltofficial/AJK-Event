@@ -2,6 +2,8 @@
 import React, { forwardRef, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
+import { editable as e } from "@theatre/r3f";
+
 export const Room = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF("/models/Room/scene.gltf");
   return (
@@ -126,8 +128,9 @@ export const Room = forwardRef((props, ref) => {
           geometry={nodes.Hollow3_Scifi_Tunnel_Loop_M_0.geometry}
           material={materials.Scifi_Tunnel_Loop_M}
         />
-
-        <mesh
+        {/* front door -start*/}
+        <e.mesh
+          theatreKey="frontDoor_right"
           name="Tunnel_Exit_R_Door_Scifi_Tunnel_Door_0"
           castShadow
           receiveShadow
@@ -136,7 +139,8 @@ export const Room = forwardRef((props, ref) => {
           position={[0, 0, 0]} //360
         />
 
-        <mesh
+        <e.mesh
+          theatreKey="frontDoor_left"
           name="Tunnel_Exit_L_Door_Scifi_Tunnel_Door_0"
           castShadow
           receiveShadow
@@ -145,63 +149,82 @@ export const Room = forwardRef((props, ref) => {
           // position={[-235, 0, 0]}
           // rotation={[2, 0, 0]}
         />
+        {/* front door end */}
+        <group>
+          <e.mesh
+            theatreKey="1stDoor_left"
+            name="Tunnel_Glass_L_Door2_Scifi_Door_Glass_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_Glass_L_Door2_Scifi_Door_Glass_0.geometry}
+            material={materials.Scifi_Door_Glass}
+          />
+          <e.mesh
+            theatreKey="1stDoor_right"
+            name="Tunnel_Glass_R_Door2_Scifi_Door_Glass_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_Glass_R_Door2_Scifi_Door_Glass_0.geometry}
+            material={materials.Scifi_Door_Glass}
+          />
+        </group>
+        <group>
+          <e.mesh
+            theatreKey="2ndDoor_right"
+            name="Tunnel_Glass_R_Door1_Scifi_Door_Glass_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_Glass_R_Door1_Scifi_Door_Glass_0.geometry}
+            material={materials.Scifi_Door_Glass}
+          />
+          <e.mesh
+            theatreKey="2ndDoor_left"
+            name="Tunnel_Glass_L_Door_Scifi_Door_Glass_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_Glass_L_Door_Scifi_Door_Glass_0.geometry}
+            material={materials.Scifi_Door_Glass}
+          />
+        </group>
 
-        <mesh
-          name="Tunnel_Glass_R_Door1_Scifi_Door_Glass_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_Glass_R_Door1_Scifi_Door_Glass_0.geometry}
-          material={materials.Scifi_Door_Glass}
-        />
-        <mesh
-          name="Tunnel_Glass_L_Door_Scifi_Door_Glass_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_Glass_L_Door_Scifi_Door_Glass_0.geometry}
-          material={materials.Scifi_Door_Glass}
-        />
-        <mesh
-          name="Tunnel_door_R2_Scifi_Tunnel_Door_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_door_R2_Scifi_Tunnel_Door_0.geometry}
-          material={materials.Scifi_Tunnel_Door}
-        />
-        <mesh
-          name="Tunnel_door_L2_Scifi_Tunnel_Door_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_door_L2_Scifi_Tunnel_Door_0.geometry}
-          material={materials.Scifi_Tunnel_Door}
-        />
-        <mesh
-          name="Tunnel_Glass_L_Door2_Scifi_Door_Glass_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_Glass_L_Door2_Scifi_Door_Glass_0.geometry}
-          material={materials.Scifi_Door_Glass}
-        />
-        <mesh
-          name="Tunnel_Glass_R_Door2_Scifi_Door_Glass_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_Glass_R_Door2_Scifi_Door_Glass_0.geometry}
-          material={materials.Scifi_Door_Glass}
-        />
-        <mesh
-          name="Tunnel_Glass_R_Door_Scifi_Door_Glass_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_Glass_R_Door_Scifi_Door_Glass_0.geometry}
-          material={materials.Scifi_Door_Glass}
-        />
-        <mesh
-          name="Tunnel_Glass_L_Door1_Scifi_Door_Glass_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.Tunnel_Glass_L_Door1_Scifi_Door_Glass_0.geometry}
-          material={materials.Scifi_Door_Glass}
-        />
+        <group>
+          <e.mesh
+            theatreKey="3rdDoor_right"
+            name="Tunnel_Glass_R_Door_Scifi_Door_Glass_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_Glass_R_Door_Scifi_Door_Glass_0.geometry}
+            material={materials.Scifi_Door_Glass}
+          />
+          <e.mesh
+            theatreKey="3rdDoor_left"
+            name="Tunnel_Glass_L_Door1_Scifi_Door_Glass_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_Glass_L_Door1_Scifi_Door_Glass_0.geometry}
+            material={materials.Scifi_Door_Glass}
+          />
+        </group>
+
+        <group>
+          <e.mesh
+            theatreKey="backDoor_right"
+            name="Tunnel_door_R2_Scifi_Tunnel_Door_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_door_R2_Scifi_Tunnel_Door_0.geometry}
+            material={materials.Scifi_Tunnel_Door}
+          />
+          <e.mesh
+            theatreKey="backDoor_left"
+            name="Tunnel_door_L2_Scifi_Tunnel_Door_0"
+            castShadow
+            receiveShadow
+            geometry={nodes.Tunnel_door_L2_Scifi_Tunnel_Door_0.geometry}
+            material={materials.Scifi_Tunnel_Door}
+          />
+        </group>
+
         <mesh
           name="Frame1_Scifi_Tunnel_Loop_M_0"
           castShadow

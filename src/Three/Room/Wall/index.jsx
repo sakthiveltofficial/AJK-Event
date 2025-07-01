@@ -52,8 +52,8 @@ function Wall() {
   // Create a shape with a hole
   const wallGeometry = useMemo(() => {
     // Wall dimensions
-    const wallWidth = 70;
-    const wallHeight = 40;
+    const wallWidth = 100;
+    const wallHeight = 60;
 
     // Define the six corner points of the hexagonal hole
     // Format: [x, y] coordinates
@@ -97,7 +97,7 @@ function Wall() {
 
   return (
     <group>
-      <mesh position={[0, 2, 29.8]} rotation={[0, 0, 0]}>
+      <mesh position={[0, 2.4, 34.3]} rotation={[0, 0, 0]}>
         <primitive object={wallGeometry} />
         <meshStandardMaterial
           map={colorMap}
@@ -109,7 +109,7 @@ function Wall() {
         />
       </mesh>
 
-      <group position={[-11, 5.5, 29.6]}>
+      <group position={[-11, 5.5, 34.1]}>
         <Center>
           <Text3D
             font="/fonts/Roman.json"
@@ -121,15 +121,15 @@ function Wall() {
             bevelSize={0.01}
             bevelOffset={0}
             bevelSegments={2}
-            letterSpacing={0.1}
+            letterSpacing={0.05}
           >
-            From Idea to Impact
+            From Spark to Solution
             {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
           </Text3D>
         </Center>
       </group>
 
-      <group position={[-11, 3.9, 29.7]}>
+      <group position={[-11, 3.9, 34.2]}>
         <Center>
           <Text3D
             font="/fonts/Azonix_Regular.json"
@@ -141,10 +141,10 @@ function Wall() {
             bevelSize={0.02}
             bevelOffset={0}
             bevelSegments={5}
-            letterSpacing={0.1}
+            letterSpacing={0.15}
           >
-            AJK Ignites 
-            {/* <meshBasicMaterial toneMapped={false} map={videoTexture} /> */}
+            AIIF Ignites 
+            <meshBasicMaterial toneMapped={false} map={videoTexture} />
           </Text3D>
         </Center>
       </group>
