@@ -13,29 +13,29 @@ const StackingCards = ({ projects = [] }) => {
   const defaultProjects = [
     {
       id: 1,
-      title: "Modern Web Design",
-      description: "Creating beautiful, responsive websites with cutting-edge technologies and user-centered design principles.",
+      title: "Templates for Pitch Decks and BMC",
+      description: "Access ready-made, investor-friendly templates to build your Pitch Deck and Business Model Canvas (BMC). Designed to help early-stage startups clearly communicate their value, business model, and growth strategy.",
       color: "#6366f1",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
     },
     {
       id: 2,
-      title: "Mobile App Development",
-      description: "Building native and cross-platform mobile applications that deliver exceptional user experiences.",
+      title: "Startup Policy & Handbook",
+      description: "Stay informed with Tamil Nadu’s Startup Policy and essential handbooks curated for entrepreneurs. This guide includes eligibility criteria, incentive structures, and state-level startup ecosystem support.",
       color: "#8b5cf6",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop"
     },
     {
       id: 3,
-      title: "Brand Identity",
-      description: "Crafting unique brand identities that tell your story and connect with your audience on a deeper level.",
+      title: "MSME/Udyam Registration Guide",
+      description: "Step-by-step guide to register your startup as an MSME through the Udyam portal. Learn how this registration can help you access subsidies, tax exemptions, and priority sector benefits.",
       color: "#06b6d4",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
     },
     {
       id: 4,
-      title: "Digital Marketing",
-      description: "Strategic digital marketing solutions that drive growth and maximize your online presence.",
+      title: "Government Funding Schemes Updates",
+      description: "Get updated information on central and state-level funding schemes, including Startup India Seed Fund, DST-NIDHI, and StartupTN initiatives. Know the eligibility, timelines, and application procedures.",
       color: "#10b981",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
     }

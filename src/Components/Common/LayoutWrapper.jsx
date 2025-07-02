@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from '@/app/footer/page';
 import { usePathname } from 'next/navigation';
 import React from 'react'
 
@@ -16,6 +17,7 @@ const LayoutWrapper = ({children}) => {
 
       {children}
         
+      <Footer />
       </div>
     </div>
     </>

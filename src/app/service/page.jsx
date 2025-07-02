@@ -15,7 +15,7 @@ const page = () => {
         const cursor = cursorRef.current;
         
         if (textElement && cursor) {
-            const text = "Build awesome service with AJK";
+            const text = "Empowering Ideas, Enabling Futures";
             
             // Clear text
             textElement.textContent = "";
@@ -69,7 +69,7 @@ const page = () => {
 
             <div className=' flex flex-col gap-[30px] place-content-center place-items-center mb-[50px]'>
 
-            <p>The road to freedom starts from here</p>
+            <p className='text-2xl font-light'>Build Future-Ready Startups with AJK Incubator</p>
 
             <div className='flex items-baseline justify-center'>
                 <p 
@@ -102,10 +102,10 @@ const page = () => {
                     >
                     <div className="absolute inset-0 bg-[#4e73ff] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
                     <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                        Contact us
+                    Join the incubation program
                     </span>
                     </button>
-                <button className=' px-[20px] py-[10px] rounded border cursor-pointer '>Sign up</button>
+                {/* <button className=' px-[20px] py-[10px] rounded border cursor-pointer '>Sign up</button> */}
             </div>
 
             </div>

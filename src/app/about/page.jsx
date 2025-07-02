@@ -97,10 +97,10 @@ function page() {
 
                       {/* section 3 - Vision */}
             <div className=" place-content-center place-items-center my-[5rem] space-y-[1rem]">
-            <h3 className="text-4xl font-bold">Vision</h3>
-              <div className=" w-[40%] relative mt-[2rem]">
+            <h3 className="text-5xl font-bold">Vision</h3>
+              <div className=" w-[50%] relative mt-[2rem]">
               <FaQuoteLeft className=" absolute -top-[1.5rem] -left-[1.5rem] " size={30} />
-                <p className=" text-[#00CA40] text-center text-lg tracking-wide">To be the catalyst for transforming student innovations into scalable startups from Tier-2/3 regions.</p>
+                <p className=" text-[#00CA40] text-center text-2xl tracking-wide">To be the catalyst for transforming student innovations into scalable startups from Tier-2/3 regions.</p>
                 <FaQuoteLeft className=" absolute bottom-0 -right-[1.5rem] transform rotate-180 " size={30} />
               </div>
             </div>
