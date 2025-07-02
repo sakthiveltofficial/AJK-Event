@@ -244,25 +244,25 @@ const page = () => {
         {
             id : 1,
             title: "Catalyst Platform",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+            description: "Get featured on StartupTN’s Catalyst platform—a gateway to networking, investor visibility, and statewide startup events and challenges.",
             image: "/webp/project_planning.webp"
         },
         {
             id : 2,
             title: "MentorTN",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+            description: "Connect with a diverse pool of mentors from academia, industry, and entrepreneurship through the MentorTN network to guide your startup’s growth.",
             image: "/webp/project_planning.webp"
         },
         {
             id : 3,
             title: "StartupTN",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+            description: "Leverage Tamil Nadu’s official startup platform to apply for government grants, explore market opportunities, and showcase your venture.",
             image: "/webp/project_planning.webp"
         },
         {
             id : 4,
             title: "Coordination programs",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+            description: "AJK AIIF facilitates coordination with state-run startup missions, organizing pitch days, demo days, and capacity-building programs aligned with StartupTN’s vision.",
             image: "/webp/project_planning.webp"
         }
             
@@ -380,7 +380,7 @@ const page = () => {
                 <div className=' mt-[80px] flex flex-col gap-[20px]'>
                     <p className=' text-[#4e73ff] text-3xl font-semibold'>State Ecosystem Integration</p>
 
-                    <p className='  text-xl font-light'>As a registered institutional incubator, AIIF works closely with   StartupTN   and supports activities through</p>
+                    <p className='  text-xl font-light'>Start your innovation journey with AJK AIIF. Join a vibrant ecosystem of thinkers, makers, and doers.</p>
 
                     <button
                     type="submit"

@@ -185,7 +185,7 @@ const HorizontalStackingCards = () => {
             <div
               key={card.id}
               ref={el => cardsRef.current[index] = el}
-              className="absolute w-[260px] h-[300px] p-2 rounded-3xl overflow-hidden shadow-xl bg-white border-[20px] border-gray-100"
+              className="absolute w-[260px] h-[380px] p-2 rounded-3xl overflow-hidden shadow-xl bg-white border-[20px] border-gray-100"
               style={{ 
                 left: '50%',
                 top: '50%',
